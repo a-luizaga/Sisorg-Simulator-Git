@@ -1,4 +1,4 @@
-## SimulatorGit
+# SimulatorGit
 
 El repositorio contiene dos proyectos relacionados con la simulación de funcionalidades básicas de Git:
 
