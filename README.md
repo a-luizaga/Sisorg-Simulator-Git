@@ -1,6 +1,14 @@
-# SimuladorGit
+## SimulatorGit
 
-Esta es una aplicación de consola desarrollada en .NET que simula algunas funciones básicas de Git, como `add`, `status`, `push`, `commit`, etc.
+El repositorio contiene dos proyectos relacionados con la simulación de funcionalidades básicas de Git:
+
+- **SisorgGit:** Una aplicación de consola desarrollada en .NET que simula funciones básicas de Git como `add`, `status`, `push`, `commit`, etc.
+
+- **TestSimuladorGit:** Un proyecto de xunit que contiene pruebas unitarias para verificar el correcto funcionamiento de las funciones implementadas en SisorgGit.
+
+Estos dos proyectos forman una solución completa para el desarrollo y la verificación de un simulador de Git en .NET.
+
+
 
 ## Requisitos para su ejecución
 
@@ -10,9 +18,9 @@ Esta es una aplicación de consola desarrollada en .NET que simula algunas funcio
 ## Pasos para Ejecutar la Aplicación
 
 1. **Clona el Repositorio:**
-`git clone https://github.com/a-luizaga/Simulador-Git.git`
+`git clone https://github.com/a-luizaga/Sisorg-Simulator-Git.git`
 
-2. **Navega al Directorio del Proyecto:**
+2. **Navega al Directorio del Proyecto: (se debe estar dentro del directorio SisorgGit que es la que contiene la aplicacion del simulador)**
 `cd ruta/al/proyecto/SisorgGit`
 	
 3. **Compila el Proyecto:**
@@ -37,16 +45,27 @@ Esta es una aplicación de consola desarrollada en .NET que simula algunas funcio
 ## Diagrama de clases
 ![Diagrama UML](./SisorgGit/Resources/SisorgGitUML.drawio.png)
 
+## Ejecución de Tests
 
-## Contribución
+Para ejecutar los tests unitarios, sigue estos pasos:
 
-¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, sigue estos pasos:
+1. Navega al directorio del proyecto de tests (TestSimuladorGit):
+`cd TestSimuladorGit`
+2. Ejecuta el comando de dotnet test:
+`dotnet test`
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza tus cambios y haz commit (`git commit -am 'Agrega una nueva funcionalidad'`).
-4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
-5. Crea un nuevo Pull Request.
+Esto ejecutará todos los tests unitarios en el proyecto y mostrará los resultados en la consola.
+
+## Pruebas Disponibles
+
+El proyecto de tests incluye pruebas para las siguientes funcionalidades:
+
+- Prueba 1: La funcion add debe agregar archivos al area de preparación.
+- Prueba 2: La funcion add no debe agregar archivos repetidos al area de preparación.
+- Prueba 3: La funcion reset debe remover el archivo especficado del area de preparación.
+- Prueba 4: La funcion reset debe remover todos los archivos del area de preparación si no se le pasa parametros.
+- Prueba 5: La funcion commit no debe realizar el commit si no hay archivos en el area de preparación.
+
 
 ## Contacto
 
