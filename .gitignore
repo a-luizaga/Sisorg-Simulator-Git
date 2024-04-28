@@ -1,0 +1,41 @@
+# Archivos de compilación generados
+bin/
+obj/
+
+# Archivos de dependencias de NuGet
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.exe.config
+*.json
+
+# Carpeta de paquetes NuGet
+packages/
+
+# Caché de herramientas de .NET Core
+# (específico de la versión de SDK de .NET Core y no es necesario si estás utilizando .NET 6)
+# En .NET 6, puede ser necesario ignorar la carpeta .dotnet
+# .dotnet/
+
+# Carpeta de caché de Visual Studio
+.vs/
+
+# Archivo de configuración local de Visual Studio
+*.vsconfig
+
+# Carpeta de la solución
+*.suo
+*.sln.cache
+*.suo
+*.user
+*.userosscache
+
+# Archivo de registro de compilación de Visual Studio
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
