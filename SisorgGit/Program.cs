@@ -58,7 +58,7 @@ class Program
             string content = File.ReadAllText(fileUserInfoPath);
 
             // Convertir la cadena JSON en una lista de objetos de tu modelo
-            User userInfo = JsonConvert.DeserializeObject<User>(content);
+            User userInfo = JsonConvert.DeserializeObject<User>(content)!;
 
             if(userInfo != null)
             {

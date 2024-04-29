@@ -375,7 +375,7 @@ namespace SisorgGit.Controller
                     string content = File.ReadAllText(commitsUserPath);
 
                     // Convertir la cadena JSON en una lista de objetos de tu modelo
-                    List<Commit> listLocalCommits = JsonConvert.DeserializeObject<List<Commit>>(content);
+                    List<Commit> listLocalCommits = JsonConvert.DeserializeObject<List<Commit>>(content)!;
 
                     if (listLocalCommits != null)
                     {
@@ -451,7 +451,7 @@ namespace SisorgGit.Controller
                     string content = File.ReadAllText(pathCommitsFile);
 
                     // Convertir la cadena JSON en una lista de objetos de tu modelo
-                    List<Commit> listCommits = JsonConvert.DeserializeObject<List<Commit>>(content);
+                    List<Commit> listCommits = JsonConvert.DeserializeObject<List<Commit>>(content)!;
 
                     if (listCommits != null)
                     {
@@ -511,12 +511,12 @@ namespace SisorgGit.Controller
                     string content = File.ReadAllText(pathLocalCommits);
 
                     // Convertir la cadena JSON en una lista de objetos de tu modelo
-                    List<Commit> listCommits = JsonConvert.DeserializeObject<List<Commit>>(content);
+                    List<Commit> listCommits = JsonConvert.DeserializeObject<List<Commit>>(content)!;
 
-                    countCommits = listCommits.Count;
+                    if(listCommits!= null)
+                        countCommits = listCommits.Count;
 
                     return countCommits;
-
 
                 }
                 catch (Exception ex)

@@ -98,8 +98,7 @@ namespace TestSimuladorGit
         {
             // Act
             _controllerGit.CommitFunction("msg commit");
-
-            var expectedMessage = "No hay archivos en el stage para realizar el commit";
+            
 
             // Assert
 
