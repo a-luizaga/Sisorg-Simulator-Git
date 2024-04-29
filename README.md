@@ -83,7 +83,7 @@ Para lograr el despliegue de la aplicación utilizando la arquitectura en la nube
 - Una vez construida la imagen Docker, se subió al registro público de imágenes Docker, Docker Hub.
 - Esto permitió disponer de la imagen de la aplicación en un repositorio centralizado y accesible desde cualquier máquina que ejecute Docker.
 
-- 
+
 ### Provisión de una Instancia EC2 en AWS:
 - Se lanzó una instancia EC2 en Amazon Web Services (AWS) para alojar la aplicación en la nube. La instancia EC2 se configuró con una plataforma de Linux.
 
