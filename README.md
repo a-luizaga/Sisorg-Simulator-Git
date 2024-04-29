@@ -69,3 +69,27 @@ El proyecto de tests incluye pruebas para las siguientes funcionalidades:
 - Prueba 4: La funcion reset debe remover todos los archivos del area de preparación si no se le pasa parametros.
 - Prueba 5: La funcion commit no debe realizar el commit si no hay archivos en el area de preparación.
 
+
+## Proceso de Despliegue en la Nube utilizando Docker y AWS
+
+Para lograr el despliegue de la aplicación utilizando la arquitectura en la nube, se siguieron los siguientes pasos:
+
+### Dockerización de la Aplicación:
+- Se creó un Dockerfile para definir cómo construir la imagen Docker de la aplicación. Este mismo se encuentra disponible en el repositorio.
+- La aplicación se encapsuló en un contenedor Docker para asegurar la portabilidad y consistencia del entorno.
+
+
+### Subida de la Imagen a Docker Hub:
+- Una vez construida la imagen Docker, se subió al registro público de imágenes Docker, Docker Hub.
+- Esto permitió disponer de la imagen de la aplicación en un repositorio centralizado y accesible desde cualquier máquina que ejecute Docker.
+
+### Provisión de una Instancia EC2 en AWS:
+- Se lanzó una instancia EC2 en Amazon Web Services (AWS) para alojar la aplicación en la nube.
+
+### Configuración del Entorno Docker en la VM:
+- Una vez que la instancia EC2 estuvo en funcionamiento, se configuró el entorno Docker en la máquina virtual.
+
+### Descarga de la Imagen Docker y Ejecución del Contenedor:
+- Finalmente, se descargó la imagen Docker de la aplicación desde Docker Hub a la instancia EC2.
+- Se ejecutó el contenedor Docker en la instancia EC2 en modo interactivo para que la aplicación funcione correctamente con el siguiente comando: `docker run -it aluizaga/simulator_git`, lo que permitió que la aplicación estuviera disponible para su acceso y uso.
+
