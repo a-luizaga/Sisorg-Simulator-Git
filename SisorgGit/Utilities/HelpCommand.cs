@@ -17,8 +17,12 @@ namespace SisorgGit.Utilities
             { "reset", ("Quita archivos del área de preparación.", "reset <archivo1> <archivo2> ...") },
             { "commit", ("Crea un nuevo commit con los cambios en el área de preparación.", "commit -m \"<mensaje>\"") },
             { "status", ("Muestra el estado actual del área de preparación.", "status") },
-            { "push", ("Envia los commits locales a un servidor remoto", "push") },
-            { "log", ("Muestra el registro de commits de la rama actual", "log") },
+            { "push", ("Envia los commits locales a un servidor remoto.", "push") },
+            { "log", ("Muestra el registro de commits de la rama actual.", "log") },
+            { "remote", ("Muestra el registro de commits del server.", "remote") },
+            { "branch", ("Permite crear una nueva rama de trabajo. Si no se especifica ningun argumento, muestra la lista de ramas disponibles.", "branch <nameBranch>") },
+            { "checkout", ("Permite intercambiar entre una rama u otra.", "checkout <nameBranch>") },
+            { "cls", ("Limpia la consola.", "cls") },
         };
 
             Console.WriteLine("Comandos disponibles:");

@@ -234,16 +234,19 @@ namespace SisorgGit.Controller
             return msg;
         }
 
-        public string StatusFunction()
+        public void StatusFunction()
         {
             Console.WriteLine("Stage: ");
-            foreach (var item in user.Stage)
+
+            if(user.Stage.Count == 0)
+                Console.WriteLine("\t" + "No hay archivos en el area de preparacion.");
+            else
             {
-                Console.WriteLine(item);
-            }
-
-
-            return "Ok";
+                foreach (var item in user.Stage)
+                {
+                    Console.WriteLine("\t" + item);
+                }
+            }                        
         }
 
         public string ResetFunction(string[] arguments)
