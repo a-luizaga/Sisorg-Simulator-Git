@@ -11,7 +11,7 @@ namespace SisorgGit.View
 
         public string ReadFromKeyboard()
         {
-            string input = Console.ReadLine();
+            string input = Console.ReadLine()!;
             return input ?? string.Empty;
         }
     }
