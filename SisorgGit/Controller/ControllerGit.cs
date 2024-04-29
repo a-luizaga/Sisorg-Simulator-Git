@@ -285,11 +285,10 @@ namespace SisorgGit.Controller
         public void CommitFunction(string msgCommit)
         {
 
-            DateTime dateCommit = DateTime.Now;
+            DateTime dateCommit = DateTime.Now;            
 
-            // TO DO: ID commit hardcodeado :/
-
-            var commit = new Commit("1", msgCommit, dateCommit, user.Stage.ToArray());
+            int newIdCommit = GetCountLocalsCommits() + 1;
+            var commit = new Commit(newIdCommit.ToString(), msgCommit, dateCommit, user.Stage.ToArray());
 
 
             // Armar directorio
