@@ -41,6 +41,9 @@ Estos dos proyectos forman una solución completa para el desarrollo y la verific
 - `status`: Muestra los arhivos que se encuentran en el área de preparación.
 - `reset <archivo>`: Quita un archivo especifico. Se puede quitar todos los archivos si no se pasa como argumento ningun archivo.
 - `remote`: Muestra el registro de commits del server remoto.
+- `branch <nameBranch>`: Permite crear una nueva rama de trabajo. Si no se especifica ningun argumento, muestra la lista de ramas disponibles.
+- `chekcout <nameBranch>`: Permite intercambiar entre una rama u otra. 
+- `cls`: Limpia la consola. 
 
 ## Diagrama de clases
 ![Diagrama UML](./SisorgGit/Resources/SisorgGitUML.drawio.png)

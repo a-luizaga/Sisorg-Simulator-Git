@@ -16,7 +16,10 @@ namespace SisorgGit.Utilities
         public const string Log = "log";
         public const string Remote = "remote";
         public const string Help = "help";
-        public const string Exit = "exit";        
+        public const string Exit = "exit";
+        public const string Branch = "branch";
+        public const string Checkout = "checkout";
+        public const string Cls = "cls";
 
 
         public static bool IsAValidCommand(string command)

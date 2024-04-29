@@ -112,6 +112,36 @@ namespace SisorgGit.Controller
 
                     break;
 
+                case "branch":
+
+                    if (instruction.Arguments.Length == 0)
+                    {
+                        // Mostrar ramas disponbiles
+                        ViewAllBranchs();
+                    }
+
+                    if (instruction.Arguments.Length == 1)
+                    {                        
+                        BranchFunction(instruction.Arguments[0]);
+                    }
+
+                    if (instruction.Arguments.Length > 1)
+                        Console.WriteLine("Este comando admite un solo parametro");
+
+                    break;
+
+                case "checkout":                    
+
+                    if (instruction.Arguments.Length == 1)
+                    {
+                        CheckoutFunction(instruction.Arguments[0]);
+                    }
+                    else{
+                        Console.WriteLine("Se debe espicificar el nombre de la rama");
+                    }                    
+
+                    break;
+
                 case "help":
 
                     if (instruction.Arguments.Length > 0)
@@ -119,6 +149,11 @@ namespace SisorgGit.Controller
                     else
                         HelpCommand.ShowHelp();
 
+                    break;
+
+                case "cls":
+                    Console.Clear();
+                    Console.Write("SimulatorGit - Sisorg\n");
                     break;
 
                 case "exit":
@@ -255,7 +290,7 @@ namespace SisorgGit.Controller
 
 
             // Armar directorio
-            string commitsUserPath = Path.Combine(Directory.GetCurrentDirectory(), "Users", "commits.json");
+            string commitsUserPath = Path.Combine(Directory.GetCurrentDirectory(), "Users", $"{user.CurrentBranch}.json");
 
             try
             {
@@ -316,7 +351,7 @@ namespace SisorgGit.Controller
         {
 
             // Armar directorio al archivo de commits locales
-            string pathLocalCommits = Path.Combine(Directory.GetCurrentDirectory(), "Users", "commits.json");
+            string pathLocalCommits = Path.Combine(Directory.GetCurrentDirectory(), "Users", $"{user.CurrentBranch}.json");
 
             PrintCommits(pathLocalCommits);
            
@@ -325,7 +360,7 @@ namespace SisorgGit.Controller
         public void PushFunction()
         {
             // Armar directorio
-            string commitsUserPath = Path.Combine(Directory.GetCurrentDirectory(), "Users", "commits.json");
+            string commitsUserPath = Path.Combine(Directory.GetCurrentDirectory(), "Users", $"{user.CurrentBranch}.json");
 
 
             // Verificar si el archivo existe
@@ -462,7 +497,7 @@ namespace SisorgGit.Controller
             int countCommits = 0;
 
             // Armar directorio al archivo de commits locales
-            string pathLocalCommits = Path.Combine(Directory.GetCurrentDirectory(), "Users", "commits.json");
+            string pathLocalCommits = Path.Combine(Directory.GetCurrentDirectory(), "Users", $"{user.CurrentBranch}.json");   
 
             // Verificar si el archivo existe
             if (File.Exists(pathLocalCommits))
@@ -497,6 +532,68 @@ namespace SisorgGit.Controller
                 return countCommits;
             }
 
+        }
+
+        public void BranchFunction(string nameBranch)
+        {
+            if (user.ListBranchs.Contains(nameBranch))
+                Console.WriteLine("Ya existe una rama con ese nombre");
+            else{
+                user.CurrentBranch = nameBranch;
+
+                user.ListBranchs.Add(nameBranch);
+
+                UpdateFileUserInfoFromModelUser();
+
+                Console.WriteLine("Se creo la nueva rama. Su rama actual es "+nameBranch);
+
+            }
+
+        }
+
+        public void ViewAllBranchs()
+        {
+            Console.WriteLine("Ramas disponibles: ");
+            foreach (var branch in user.ListBranchs)
+            {
+                if(branch == user.CurrentBranch)
+                    Console.WriteLine("\t" +"*"+branch);
+                else
+                    Console.WriteLine("\t" + branch);
+            }
+        }
+
+        public void CheckoutFunction(string namebranch)
+        {
+            if (user.ListBranchs.Contains(namebranch))
+            {
+                user.CurrentBranch = namebranch;
+
+                UpdateFileUserInfoFromModelUser();                
+
+                Console.WriteLine("La rama actual ahora es: " + namebranch);
+            }
+            else
+            {
+                // No existe esa rama
+                Console.WriteLine("La rama indicada no existe");
+            }
+        }
+
+        public void UpdateFileUserInfoFromModelUser()
+        {
+            // Actualizar archivo de userInfo
+            string fileUserInfoPath = Path.Combine(Directory.GetCurrentDirectory(), "Users", $"{user.Alias}.json");
+
+            // Serializar la lista de objetos JSON en un arreglo JSON
+            string userJson = JsonConvert.SerializeObject(user, Formatting.Indented);
+
+            // Verificar si el archivo existe
+            if (File.Exists(fileUserInfoPath))
+            {
+                // Escribir el contenido JSON en el archivo
+                File.WriteAllText(fileUserInfoPath, userJson);
+            }
         }
 
     }
