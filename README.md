@@ -69,8 +69,3 @@ El proyecto de tests incluye pruebas para las siguientes funcionalidades:
 - Prueba 4: La funcion reset debe remover todos los archivos del area de preparación si no se le pasa parametros.
 - Prueba 5: La funcion commit no debe realizar el commit si no hay archivos en el area de preparación.
 
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con el equipo de desarrollo en [dev@example.com](mailto:dev@example.com).
-
