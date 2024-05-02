@@ -95,3 +95,4 @@ Para lograr el despliegue de la aplicación utilizando la arquitectura en la nube
 - Finalmente, se descargó la imagen Docker de la aplicación desde Docker Hub a la instancia EC2.
 - Se ejecutó el contenedor Docker en la instancia EC2 en modo interactivo para que la aplicación funcione correctamente con el siguiente comando: `docker run -it aluizaga/simulator_git`, lo que permitió que la aplicación estuviera disponible para su acceso y uso.
 
+## Contacto
